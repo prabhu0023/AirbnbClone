@@ -1,0 +1,34 @@
+diff --git a/src/screen/donation/index.js b/src/screen/donation/index.js
+index 69137a903..a9d91a54a 100644
+--- a/src/screen/donation/index.js
++++ b/src/screen/donation/index.js
+@@ -74,7 +74,7 @@ const DonationSuccess = (props) => {
+ 
+   if (Platform.OS !== 'ios') {
+     const backActionHandler = () => {
+-      backActionHandlerPress(false, props);
++      naviageToCharityLandingPage()
+       return true;
+     };
+     // hook which handles event listeners under the hood
+@@ -94,19 +94,11 @@ const DonationSuccess = (props) => {
+     props.navigation.navigate('CharityLandingPage', { fromNative: true,zipcode:props.route.params.zipcode });
+   }
+ 
+-  const NavigateToLanding = CommonActions.reset({
+-    index: 0,
+-    routes: [
+-      { name: 'WalgreensCashReward' }
+-    ]
+-  });
+-
+-
+     useFocusEffect(
+       useCallback(() => {
+         const onHardwareBackPress = () => {
+           if (isFocused) {
+-            props.navigation.dispatch(NavigateToLanding)
++            naviageToCharityLandingPage()
+             return true
+           } else { return false } 
+         }
